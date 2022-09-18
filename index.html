@@ -11,13 +11,13 @@
     <title>HiberSunda | Undak Usuk Basa Sunda</title>
   </head>
   <body>
-    <nav class="navbar navbar-light bg-light">
-        <div class="container-fluid">
+    <div class="container-fluid">
+      <nav class="navbar navbar-light bg-light">
           <form class="d-flex">
-            <input id="substring" class="form-control me-2" type="search" placeholder="Pilari" aria-label="Search" onkeyup="searchWords()">
+            <input id="substring" class="form-control me-2" type="search" placeholder="Pilari" aria-label="Search" onkeyup="searchWords()" autofocus>
           </form>
-        </div>
       </nav>
+      <hr>
       <table id="table-words" class="table table-success table-striped">
         <thead>
           <th>#</th>
@@ -28,6 +28,7 @@
         </thead>
         <tbody></tbody>
       </table>
+    </div>
   </body>
 </html>
 <script src="vendors/bootstrap/bootstrap.min.js" ></script>
