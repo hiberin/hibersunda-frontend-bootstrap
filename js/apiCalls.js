@@ -1,12 +1,17 @@
 
-var xhttp = new XMLHttpRequest();
-xhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-    document.getElementById("list").innerHTML = this.responseText;
-    } else {
-    document.getElementById("list").innerHTML = `Something's wrong!`;
-    }
+    
+function getAllWords(callbackSuccess, callbackError) {
+    const xhttp = new XMLHttpRequest();
+    
+    xhttp.onload = function () {
+        if (xhttp.status === 200) {
+            const data = JSON.parse(xhttp.responseText);
+            callbackSuccess(data);
+        } else {
+            callbackError();
+        }
     };
 
-xhttp.open("GET", apiUrl+"undakusukbasa", true);
-xhttp.send();
+    xhttp.open("GET", apiUrl+"undakusukbasa", true);
+    xhttp.send();
+}
