@@ -1,5 +1,11 @@
 
 
+
+  function clearWords() {
+    const tableBody = document.getElementById("table-words").getElementsByTagName('tbody')[0];
+    tableBody.textContent = "";
+  }
+
   function displayWords(data) {
     const tableBody = document.getElementById("table-words").getElementsByTagName('tbody')[0];
 
@@ -22,19 +28,26 @@
 
   function searchWords() {
     const substring = document.getElementById('substring').value;
-    getWordsBySubstring(
-      substring,
-      function (data) {
-        clearWords();
-        displayWords(data);
-      },
-      function () {
-        console.log("Error");
-      }
-    )
-  }
-
-  function clearWords() {
-    const tableBody = document.getElementById("table-words").getElementsByTagName('tbody')[0];
-    tableBody.textContent = "";
+    if (substring == "") {
+        getAllWords(
+        function (data) {
+            clearWords();
+            displayWords(data);
+        }, 
+        function () {
+          console.log("Error");
+        }
+      );
+    } else {
+        getWordsBySubstring(
+          substring,
+          function (data) {
+            clearWords();
+            displayWords(data);
+          },
+          function () {
+            console.log("Error");
+          }
+        )
+    }
   }
