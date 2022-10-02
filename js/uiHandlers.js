@@ -13,11 +13,13 @@
     data.forEach(word => {
         const row = tableBody.insertRow(index);
         index++;
-        const soranganCell = row.insertCell(0);
-        const baturCell = row.insertCell(1);
-        const lomaCell = row.insertCell(2);
-        const bindoCell = row.insertCell(3);
-        const englishCell = row.insertCell(4);
+        const noCell = row.insertCell(0);
+        const soranganCell = row.insertCell(1);
+        const baturCell = row.insertCell(2);
+        const lomaCell = row.insertCell(3);
+        const bindoCell = row.insertCell(4);
+        const englishCell = row.insertCell(5);
+        noCell.innerHTML = "<b>"+index+"</b>";
         soranganCell.innerHTML = word.sorangan;
         baturCell.innerHTML = word.batur; 
         lomaCell.innerHTML = word.loma; 
